@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Xml.Serialization;
 using static System.Console;
 namespace SocialSecurityNumber0
 {
@@ -8,6 +9,15 @@ namespace SocialSecurityNumber0
         static void Main(string[] args)
         {
 
+            Console.WriteLine("what is you first name?");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("And last name?");
+            string lastName = Console.ReadLine();
+            
+            
+            
+            
+            
             Console.WriteLine("Social Security Number (YYMMDD-XXXX): ");
 
             string socialSecurityNumber = Console.ReadLine();
@@ -27,8 +37,28 @@ namespace SocialSecurityNumber0
             {
                 age--;
             }
+            // Input
+            if (args.Length > 0)
+            {
+                // if input from terminal is already done
+                Console.WriteLine($"You provided: {args[0]}");
+                socialSecurityNumber = args[0];
+            }
+            else
 
-            Console.WriteLine($"{gender}, {age}");
+            {   // Ask for input
+                Console.WriteLine("Please input your Social security number YYMMDD-XXXX");
+                socialSecurityNumber = Console.ReadLine();
+            }
+
+
+
+            Console.Clear();
+
+            Console.WriteLine($"{gender}, {age}, {firstName}, {lastName}");
+
+
+
         }
     }
 }
